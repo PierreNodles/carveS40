@@ -42,6 +42,8 @@
     flex-wrap: wrap;
     justify-content: center;
     padding:80px 0px 0px 0px;
+    position:relative;
+    z-index:1;
 
     .dp_container-jumbo {
       display:flex;
@@ -108,69 +110,56 @@
   .main_content {
     background-image: url('../img/wave-background.jpg');
     background-size:cover;
+    margin-top:-250px;
+    padding-top:230px;
+
+    /******* CARVE 540 ********/
+
+    .dp_carve540 {
+      
+      flex-direction:column;
+      background-color:white;
+      box-shadow:0px 10px 20px rgba(0,0,0,0.3);
+      padding: 80px 120px 60px;
+
+      .logo {
+        figure {
+          max-width:60%;
+          margin:auto;
+        }
+      }
+
+      .board {
+        padding : 70px 0px;
+        figure {
+          max-width:75%;
+          margin:auto;
+        }
+      }
+
+      .description {
+        p {
+          text-transform:uppercase;
+          font-size:22px;
+          line-height:26px;
+          font-weight:800;
+          text-align:center;
+        }
+      }
+
+      .scroll_down {
+        padding-top:10px;
+        figure {
+          max-width:70px;
+          margin:auto;
+        }
+      }
+    }
   }
 
 
-  /******* CARVE 540 ********/
 
 
-  .dp_carve540.container {
-    background-color:white;
-    box-shadow:0px 10px 20px rgba(0,0,0,0.3);
-  }
-
-
-
-  #dp_motif-left::before {
-    background-image: url(../img/motif.png);
-    background-repeat: no-repeat;
-    background-position: right;
-    content: " ";
-    position: absolute;
-    height: 50px;
-    top:25%;
-    width: 837px;
-    right: 20px;
-    z-index: -1;
-  }
-
-  #dp_motif-right::before {
-    background-image: url(../img/motif-reverse.png);
-    background-repeat: no-repeat;
-    background-position: left;
-    content: " ";
-    position: absolute;
-    bottom: 50%;
-    height: 50px;
-    width: 837px;
-    left: -55px;
-    z-index: -1;
-  }
-
-
-  // p.dp_description {
-  //   max-width:320px;
-  // }
-
-  .dp_scroll {
-    text-align : center;
-    padding-right:25%;
-  }
-  .dp_scroll p {
-    margin-top:-5px;
-    color : #434244;
-  }
-  .dp_scroll i {
-    color : #994c44;
-    font-size:20px;
-  }
-
-  .dp_link-row {
-    display:flex;
-    justify-content:center;
-    text-align: center;
-    opacity:0;
-  }
 
 
   /******* CONCEPTION  ********/
