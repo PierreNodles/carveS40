@@ -27,12 +27,42 @@ jQuery(function($) {
   backgroundHeight();
 
 
-  // Autoplay video on click
-  $('#play-video, .video figure .fas').on('click', function(ev) {
-    $(this).parent().fadeOut();
-    thevid = $('#video');
-    $("#video")[0].src += "?autoplay=1";
+
+  // Display "Voir le film" au survol
+  $('.videos figure').hover(function(){
+    var $figcaption = $(this).children('figcaption');
+    $figcaption.data('initialText', $figcaption.html());
+    $figcaption.html('Regarder le film');
+  },
+  function() {
+    $(this).children('figcaption').html($(this).children('figcaption').data('initialText'));
   });
+
+
+
+
+// ANIMATION HORIZONTALE DU PARALLAX
+
+  // function animateBG() {
+  //     $('.parallax').animate({
+  //         'background-position': '-=50'
+  //     }, 120);
+  //     animateBG();
+  // }
+  //
+  // // $(window).scroll(function(){
+  //   animateBG();
+  // // })
+
+
+
+
+  // Autoplay video on click
+  // $('#play-video, .video figure .fas').on('click', function(ev) {
+  //   $(this).parent().fadeOut();
+  //   thevid = $('#video');
+  //   $("#video")[0].src += "?autoplay=1";
+  // });
 
 
 

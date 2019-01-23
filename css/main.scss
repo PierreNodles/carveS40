@@ -22,7 +22,43 @@
 }
 
 
+/**** ANIMATION ******/
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.02, 1.02, 1.02);
+    transform: scale3d(1.02, 1.02, 1.02);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.02, 1.02, 1.02);
+    transform: scale3d(1.02, 1.02, 1.02);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
 .dp {
+
 
   /************************************
   MAIN CSS
@@ -67,7 +103,7 @@
         max-width: 450px;
         margin-left: 10px;
         padding-left:5px;
-        margin-top:-10px;
+        margin-top:-5px;
       }
 
       figure.logo_carve540 img {
@@ -111,16 +147,19 @@
     background-image: url('../img/wave-background.jpg');
     background-size:cover;
     margin-top:-250px;
-    padding-top:230px;
+    padding-top:70px;
+
+
+
 
     /******* CARVE 540 ********/
 
     .dp_carve540 {
-      
+
       flex-direction:column;
       background-color:white;
       box-shadow:0px 10px 20px rgba(0,0,0,0.3);
-      padding: 80px 120px 60px;
+      padding: 120px 5% 60px;
 
       .logo {
         figure {
@@ -134,10 +173,27 @@
         figure {
           max-width:75%;
           margin:auto;
+          position:relative;
+          figure.trigger {
+            position: absolute;
+            max-width: 70px;
+            top: 25%;
+            left: 25%;
+            cursor:pointer;
+
+            -webkit-animation-name: pulse;
+            animation-name: pulse;
+            -webkit-animation-duration: 1s;
+            -webkit-animation-iteration-count: infinite;
+          }
         }
       }
 
       .description {
+        figure {
+          margin:auto;
+          max-width:150px;
+        }
         p {
           text-transform:uppercase;
           font-size:22px;
@@ -155,245 +211,206 @@
         }
       }
     }
-  }
 
 
 
 
+    /******* MOVIES  ********/
 
+    .movies {
+      padding-bottom:120px;
+      margin-bottom:0px;
+      .title {
+        margin-bottom:20px;
+        position:relative;
+        z-index:2;
+        figure {
+          max-width:25%;
+        }
+      }
 
-  /******* CONCEPTION  ********/
+      .videos {
+        position:relative;
+        padding : 0px;
 
-  .vertical-img img {
-    height:100%;
-    width:100%;
-  }
-  @media (min-width: 767.98px) {
-    .vertical-img {
-      margin-top:12.5%;
-      z-index:1;
+        .blue_background {
+          height:250px;
+          width:92%;
+          position:absolute;
+          top:-40px;
+          right:-20px;
+          background-color:#ccffff;
+        }
+
+        figure {
+          position:relative;
+          figcaption {
+            position : absolute;
+            top:40%;
+            color:white;
+            width:100%;
+            text-align: center;
+            font-family : "RobotoCondensed";
+            font-style: italic;
+            font-weight:600;
+            font-size:30px;
+            line-height:36px;
+            text-transform:uppercase;
+            text-shadow:1px 1px 3px rgba(0,0,0,0.3);
+            cursor:pointer;
+          }
+        }
+
+      }
+
+      .legende {
+        padding:0px;
+        p {
+          margin-top:0px;
+          padding: 20px 30% 20px 20px ;
+          background-color : #ccffff;
+          font-weight:600;
+        }
+      }
+
     }
 
-    .vertical-img figure {
-      display:flex;
+  }
+
+
+
+  /************************
+  *********** PARALLAX
+  *************************/
+
+  @-webkit-keyframes MOVE-BG {
+    from {
+      -webkit-transform: translateX(0);
     }
-
-    .conception-img {
-      display:flex;
-      flex-direction: column;
+    to {
+      -webkit-transform: translateX(-187%);
     }
-
-    .conception-img img {
-      max-width: 150%;
-      float: right;
-      z-index: -1;
-    }
-
-    .conception-img h3 {
-      margin: -60px 0px 0px -30px;
-      width: 75%;
-      padding: 10px 5px 10px 30px !important;
-      background-color: white;
-      font-size: 1.7rem;
-    }
-
-    .conception-img p {
-      max-width:80%;
-    }
-
   }
-
-  .conception-img::before {
-    background-image: url(../img/motif-reverse.png);
-    background-repeat: no-repeat;
-    background-position: left;
-    content : " ";
-    position: absolute;
-    bottom:17%;
-    height: 50px;
-    width: 837px;
-    right: -150%;
-    z-index: 3;
-  }
-
-
-  /******* VIDEO  ********/
-
-  .dp_video h2 {
-    text-align:right;
-  }
-
-  .video {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    padding-top: 25px;
-    height: 0;
-  }
-  .video figure {
-    overflow: hidden;
-    position: absolute;
-    z-index: 3;
-    right: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-  }
-
-  .video figure img {
-    height: 100%;
-    width: auto;
-    max-width: 120%;
-  }
-
-  .video figure .fas {
-    color: white;
-    font-size: 135px;
-    position: absolute;
-    left: 45%;
-    top: 40%;
-    z-index:10
-
-  }
-
-  .video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  /******* PARALLAX  ********/
 
 
   .parallax {
-    max-width:100%;
-    /* The image used */
-    background-image: url("../img/parralax-background.jpg");
-
-    /* Set a specific height */
-    height: 400px;
-    margin-top:120px;
-
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-  }
-
-  @media (min-width:980px) {
-    .parallax {
-      background-attachment: fixed;
-    }
-  }
 
 
-  /*********** LA GAMME ******************/
+    margin-top:-80px;
+    height: 800px;
 
-  .crush500 a {
-    padding: 10px 25px 10px 15px;
-    background-color: #ffea28;
-    color: #333333;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-family: "RobotoCondensed", sans-serif;
     position: relative;
-    font-size: 12px;
-  }
+    z-index:9999;
 
-  .crush500 .product-price {
-    text-align:center;
-    margin-bottom: 40px;
-  }
+    .parallax_bg {
+      background-image: url("../img/parallax.png");
+      background-repeat: repeat-x;
+      position: absolute;
+      left: 0;
+      right: -5500000px;
+      top: 0;
+      bottom: 0;
+      z-index: 9999;
 
-  .crush500 .product-price span {
-    text-align:center;
-    font-family: "RobotoCondensed", sans-serif;
-    font-weight:700;
-    font-size:38px;
-    padding : 6px 30px 10px;
-    background-color : #ffea28;
-  }
+      -webkit-animation-name: MOVE-BG;
+      -webkit-animation-duration: 500000s;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-iteration-count: infinite;
 
-  .products {
-    display:flex;
-  }
-
-  @media (min-width:980px) {
-
-    .products img {
-      max-width:170%;
     }
-    .products #ad_black {
-      z-index:5;
+  }
+
+
+
+  /************************
+  *********** SLIDER_PRODUCT
+  *************************/
+
+
+  .slider_product {
+    background-color:pink;
+    margin-top:-150px;
+    padding:200px 0px 20px;
+    position:relative;
+
+
+    .product_slide {
+
+      .col-md-6 {
+        display:flex
+      }
+      .product_img {
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        figure.product {
+          max-width:70%;
+          margin:0;
+          position:relative;
+          z-index:2
+        }
+
+        figure.background {
+          position: absolute;
+          right: -90%;
+          top: 25%;
+          max-width: 550px;
+          width: 550px;
+
+        }
+      }
+
+      .product_info {
+
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+
+        figure {
+          max-width:80%;
+          margin:auto;
+        }
+
+        figure.oxelo_logo {
+          max-width:30%;
+          float:right;
+          margin-right:10%;
+          margin-bottom:55px;
+        }
+
+
+        .product_price {
+          text-align:center;
+          margin-bottom: 75px;
+
+          span {
+            text-align:center;
+            font-family: "RobotoCondensed", sans-serif;
+            font-weight:700;
+            font-size:45px;
+            padding : 6px 30px 10px;
+            background-color : #ffea28;
+          }
+        }
+
+        a {
+          padding: 10px 35px 10px 15px;
+          background-color: #ffea28;
+          color: #333333;
+          text-transform: uppercase;
+          font-weight: 700;
+          font-family: "RobotoCondensed", sans-serif;
+          position: relative;
+          font-size: 12px;
+        }
+
+      }
+
+
     }
-    .products #ad_kaki {
-      z-index:4;
-    }
-
-    .products #jr_black {
-      z-index:3;
-    }
-    .products #jr_kaki {
-      z-index:2;
-    }
-    .products .even img {
-      margin-left:-30%;
-    }
-
-    .crush500 .single-product .product-cta {
-      text-align:right;
-    }
-
-
-    /**** END DESKTOP ****/
   }
 
-  .single-product {
-    margin-bottom:40px;
-  }
 
-  .single-product.even .product-label {
-    position:absolute;
-    right:0px;
-    top:15%;
-  }
-
-  .single-product.odd .product-label {
-    position:absolute;
-    left:0px;
-    top:5%;
-  }
-
-  .single-product figure {
-    margin-top:52px;
-  }
-  .single-product.odd .product-label span {
-    text-align:left;
-  }
-
-  .single-product.even .product-label span {
-    text-align:right;
-  }
-
-  .single-product .product-label span {
-    font-family: "RobotoCondensed", sans-serif;
-    text-transform:uppercase;
-    font-weight:700;
-    display:block;
-    font-size:20px;
-  }
-
-  .single-product .product-label span.product-description {
-    font-family : "RobotoCondensed";
-    font-weight:400;
-    font-style: italic;
-  }
-  .single-product .product-cta {
-    text-align:center;
-  }
-  .dp_gamme figure {
-    margin-bottom: 25px;
-  }
 
 
   /****************************************
@@ -402,87 +419,6 @@
 
 
   @media (max-width: 767.98px) {
-
-    /**** GENERIQUE ****/
-    h2 {
-      font-size:40px;
-    }
-
-    a {
-      font-size:11px;
-    }
-
-    a:before {
-      font-size:1em;
-      margin-top:1px;
-    }
-
-    p br {
-      display:none;
-    }
-
-    /****** JUMBOTRON ******/
-
-    .dp_container-jumbo {
-      display: flex;
-      width: 100%;
-      align-items: center;
-      justify-content: center;
-      align-content: stretch;
-      flex-direction: column;
-      margin-top: 25%;
-    }
-
-    .dp_jumbotron h1 {
-      margin-top:0px;
-      font-size:4rem;
-    }
-
-
-    /******** CRUSH500 RESPONSIVE *************/
-
-    #dp_motif-right::before {
-      left: 15px;
-    }
-
-    .dp_link-row {
-      text-align:left;
-    }
-
-    /******* CONCEPTION RESPONSIVE ********/
-
-    .conception-img::before {
-      right: 0;
-      bottom: 30%;
-      z-index: -3;
-    }
-
-    /************ PARALLAX RESPONSIVE ******/
-
-    .parallax {
-      background-image: url("../img/parralax-background_mobile.jpg");
-    }
-
-    /*********** VIDEO RESPONSIVE *******/
-    .dp_video h2 {
-      text-align:left;
-    }
-
-    .video figure .fas {
-      font-size: 55px;
-      left: 45%;
-      top: 35%;
-    }
-
-    /************* LA GAMME RESPONSIVE  ****************/
-
-    .products {
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 75px;
-    }
-
-
 
 
   }
@@ -494,126 +430,9 @@
   *****************************************/
 
   @media only screen and (min-width : 768px) and (max-width : 1024px) {
-
-
-    /********** CRUSH 500 ************/
-
-    #dp_motif-right::before {
-      left: 0;
-    }
-    /****** CONCEPTION ******/
-
-    .conception-img h3 {
-      width: 100%;
-
-    }
-
-    .conception-img::before {
-      position: absolute;
-      bottom: -30px;
-      width: 837px;
-      height: 50px;
-      z-index: -1;
-    }
-    /******* LA GAMME ******/
-
-    .single-product .product-label span {
-      font-size: 15px;
-    }
-
-    .crush500 a {
-      font-size: 8px;
-    }
-
-    .products img {
-      max-width:170%;
-    }
-    .products #ad_black {
-      z-index:5;
-    }
-    .products #ad_kaki {
-      z-index:4;
-    }
-
-    .products #jr_black {
-      z-index:3;
-    }
-    .products #jr_kaki {
-      z-index:2;
-    }
-    .products .even img {
-      margin-left:-30%;
-    }
-
-    .crush500 .single-product .product-cta {
-      text-align:right;
-    }
-
-
-  }
-
-  /****************************************
-  BIG SCREEN
-  *****************************************/
-
-  @media (min-width: 1550px) {
-
-    .dp_jumbotron .container.dp_cta-btn {
-      padding-right: 15%;
-    }
-
   }
 
 
-
-
-  /******* ANIMATION JQUERY ************/
-
-  #dp_motif-right, .crush500-text_2, .crush500_2, .crush500_3  {
-    display : none;
-  }
-
-
-
-  /***** MOBILE // Animation Jquery *****/
-  @media (max-width: 767.98px) {
-
-    .motif-right {
-      margin-top:500px;
-    }
-
-    .dp_crush500 .row {
-      flex-direction: column-reverse;
-    }
-
-    .dp_crush500 figure.crush500_2 img {
-      position: absolute;
-      top: 85%;
-      left:0;
-    }
-
-    .dp_crush500 figure.crush500_3 img {
-      position: absolute;
-      top: -80%;
-      left:0;
-    }
-
-    .dp_link-row.desktop {
-      opacity:0 !important;
-    }
-
-    .dp_link-row.mobile {
-      padding-left:0px !important;
-    }
-
-
-  }
-
-  @media (min-width : 768px) {
-    .dp_link-row.mobile {
-      opacity:0 !important;
-    }
-  }
 
 
 }

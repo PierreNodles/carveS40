@@ -1,3 +1,38 @@
+/**** ANIMATION ******/
+@-webkit-keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.02, 1.02, 1.02);
+    transform: scale3d(1.02, 1.02, 1.02);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes pulse {
+  from {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+
+  50% {
+    -webkit-transform: scale3d(1.02, 1.02, 1.02);
+    transform: scale3d(1.02, 1.02, 1.02);
+  }
+
+  to {
+    -webkit-transform: scale3d(1, 1, 1);
+    transform: scale3d(1, 1, 1);
+  }
+}
+
 body {
   margin:0;
   padding:0;
@@ -49,10 +84,13 @@ body {
     flex-wrap: wrap;
     margin-right: -15px;
     margin-left: -15px;
+    width:100%;
   }
 
   img {
     max-width:100%;
+    width:100%;
+    vertical-align: middle;
   }
 
   figure {
@@ -66,6 +104,7 @@ body {
     margin-right: auto;
     margin-left: auto;
     width: 100%;
+    margin-bottom:80px;
   }
 
   a {
@@ -204,7 +243,7 @@ body {
 
   .col {
     -ms-flex-preferred-size: 0;
-    flex-basis: 0;
+    // flex-basis: 0;
     -ms-flex-positive: 1;
     flex-grow: 1;
     max-width: 100%;
