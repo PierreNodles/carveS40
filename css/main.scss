@@ -211,8 +211,8 @@
           position: absolute;
           z-index: 99999;
           width: 30px;
-          top: 0px;
-          right: 0px;
+          top: 10px;
+          right: 10px;
           cursor: pointer;
         }
       }
@@ -348,6 +348,7 @@
 
     .container {
       position:relative;
+      min-height:483px;
 
       .controls {
 
@@ -386,6 +387,8 @@
 
         position:absolute;
         max-width:90%;
+        margin-right:auto !important;
+        margin-left:auto !important;
 
         .col-md-6 {
           display:flex

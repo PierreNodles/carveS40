@@ -62,14 +62,6 @@ jQuery(function($) {
 
   // SLIDER PRODUCT
 
-  function setSliderHeight() {
-    var $slideHeight = $('.product_slide').height();
-    $('.slider_product .container').height($slideHeight);
-
-  }
-
-  setSliderHeight();
-
 
   var $slider = $('.slider_product'), // on cible le bloc du slider
   $slide = $('.slider_product .product_slide'), // on cible les slides contenues dans le slider
@@ -81,7 +73,7 @@ jQuery(function($) {
   function changeSlide(){
     $currentSlide = $slide.eq(i); // enfin, on cible l'image courante, qui possède l'index i (0 pour l'instant)
     $slide.animate({opacity: 0, left: '+300px'}, 900).animate({left:'-300px'}, 0); // on cache les images
-    $currentSlide.animate({opacity: 1.0, left :"0px"}, 900); // on affiche seulement l'image courante
+    $currentSlide.animate({opacity: 1.0, left :"0px", right :"0px"}, 900); // on affiche seulement l'image courante
 
     switch (i) {
       case 0:
@@ -154,6 +146,24 @@ jQuery(function($) {
     clearTimeout(loop); // On sort de la boucle timeOut créée ans la function carrousel_1
     slider(); // Puis on la relance
   });
+
+
+  function setSliderHeight() {
+    var $slideHeight = $('.product_slide').height();
+    $('.slider_product .container').height($slideHeight);
+
+  }
+
+
+    setSliderHeight();
+
+
+
+  $(window).resize(function() {
+
+    setSliderHeight();
+  });
+
 
 
 
