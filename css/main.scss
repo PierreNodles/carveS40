@@ -1,6 +1,7 @@
 /*** RESET CSS ***/
 
 @import 'reset';
+@import 'animation';
 
 
 
@@ -24,8 +25,6 @@
 
 
 .dp {
-
-
 
 
   /************************************
@@ -120,7 +119,9 @@
 
 
 
-    /******* CARVE 540 ********/
+    /******************
+    ********CARVE 540
+    ******************/
 
     .dp_carve540 {
 
@@ -190,32 +191,48 @@
       margin-bottom:0px;
       position:relative;
 
-      .pop-up {
+      .pop-up_background {
         display:none;
-        z-index:99;
-        position:absolute;
-        overflow: hidden;
-        padding-top: 56.25%;
-        width:100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 999999;
+        bottom: 0;
+        width: 100%;
+        background-color:rgba(0,0,0,0.95);
 
-        iframe {
-          position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          border: 0;
-        }
+        .pop-up {
+          display:none;
+          z-index: 99999999;
+          position: relative;
+          height: 563px;
+          width: 1000px;
+          margin: auto;
+          top: 10%;
 
-        img{
-          position: absolute;
-          z-index: 99999;
-          width: 30px;
-          top: 10px;
-          right: 10px;
-          cursor: pointer;
+
+          iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+          }
+
+          img{
+            position: absolute;
+            z-index: 99999;
+            width: 30px;
+            top: -40px;
+            right: 0px;
+            cursor: pointer;
+          }
         }
       }
+
+
       .title {
         margin-bottom:20px;
         position:relative;

@@ -171,16 +171,26 @@ jQuery(function($) {
   // VIDEO POP UP
 
 
+  $('.video').click(function(event) {
+    $('.pop-up_background').fadeIn(400);
+  });
+
   $('.video_left').click(function(event) {
-    $('.pop-up_left').fadeIn(400)
+    $('.pop-up_left').fadeIn({
+      duration:400,
+      queue: false
+    });
   });
 
   $('.video_right').click(function(event) {
-    $('.pop-up_right').fadeIn(400)
+    $('.pop-up_right').fadeIn({
+      duration:400,
+      queue: false
+    })
   });
 
   $('.pop-up_close').click(function(event) {
-
+    $('.pop-up_background').fadeOut(400);
     $('.pop-up').fadeOut();
     var video = $(this).siblings(".pop-up_video").attr("src");
     $(this).siblings(".pop-up_video").attr("src","");
