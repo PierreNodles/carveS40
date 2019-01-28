@@ -128,7 +128,7 @@
       flex-direction:column;
       background-color:white;
       box-shadow:0px 10px 20px rgba(0,0,0,0.3);
-      padding: 120px 5% 60px;
+      padding: 120px 5% 0px;
 
       .logo {
         figure {
@@ -136,49 +136,151 @@
           margin:auto;
         }
       }
+      .controls_wrapper{
+        position:relative;
+      }
+      .nav_carve540 {
+        position:absolute;
+        align-items: center;
+        top:50%;
+        cursor: pointer;
 
-      .board {
-        padding : 70px 0px;
+        &.prev_carve540 {
+          left:0;
+        }
+        &.next_carve540 {
+          right:0;
+        }
+
         figure {
-          max-width:75%;
-          margin:auto;
-          position:relative;
-          figure.trigger {
+          max-width:30px;
+        }
+
+      }
+
+      .carve540_slider {
+
+        position:relative;
+
+
+        .carve540_slide {
+          position:absolute;
+          top:0;
+
+          .carve540_pop-up_close {
             position: absolute;
-            max-width: 70px;
-            top: 25%;
-            left: 25%;
-            cursor:pointer;
-
-            -webkit-animation-name: pulse;
-            animation-name: pulse;
-            -webkit-animation-duration: 1s;
-            -webkit-animation-iteration-count: infinite;
+            max-width: 50px;
+            display: block;
+            margin: auto;
+            left: 0;
+            right: 0;
+            top: 50%;
+            cursor: pointer;
           }
+
+          .pop-up_features {
+            display:none;
+            height: 550px;
+            position: absolute;
+            top: 0;
+            right: 0;
+            padding: 0 !important;
+            width: 100%;
+            max-width: 100% !important;
+
+            &.carve540-front {
+              .pop-up_zoom {
+                background-image: url('../img/popup-front_background.jpg');
+                padding: 10% 0 0 0;
+              }
+            }
+
+            &.carve540-back {
+              .pop-up_zoom {
+                background-image: url('../img/popup-back_background.jpg');
+                display:flex;
+                justify-content: flex-end;
+                overflow: hidden;
+                padding: 0;
+                figure {
+                  width:85%;
+                }
+              }
+            }
+
+            .pop-up_zoom {
+              background-size:cover;
+            }
+
+            .pop-up_description {
+              background-color:rgba(255,255,255,0.9);
+              display: flex;
+              align-items: center;
+              justify-content: center;
+
+              p {
+                text-transform: uppercase;
+                font-size: 22px;
+                line-height: 26px;
+                font-weight: 800;
+                text-align: center;
+              }
+
+            }
+          }
+
+
+          .board {
+            padding : 70px 0px;
+            figure {
+              max-width:75%;
+              margin:auto;
+              position:relative;
+              figure.trigger {
+                position: absolute;
+                max-width: 70px;
+                top: 25%;
+                left: 25%;
+                cursor:pointer;
+
+                -webkit-animation-name: pulse;
+                animation-name: pulse;
+                -webkit-animation-duration: 1s;
+                -webkit-animation-iteration-count: infinite;
+              }
+            }
+          }
+
+          .description {
+            figure {
+              margin:auto;
+              max-width:150px;
+            }
+            p {
+              text-transform:uppercase;
+              font-size:22px;
+              line-height:26px;
+              font-weight:800;
+              text-align:center;
+            }
+          }
+
+          .scroll_down {
+            padding-top:10px;
+            figure {
+              max-width:70px;
+              margin:auto;
+            }
+          }
+
         }
+
+
+
+
       }
 
-      .description {
-        figure {
-          margin:auto;
-          max-width:150px;
-        }
-        p {
-          text-transform:uppercase;
-          font-size:22px;
-          line-height:26px;
-          font-weight:800;
-          text-align:center;
-        }
-      }
 
-      .scroll_down {
-        padding-top:10px;
-        figure {
-          max-width:70px;
-          margin:auto;
-        }
-      }
     }
 
 
@@ -374,6 +476,7 @@
           position:absolute;
           align-items: center;
           top:50%;
+          cursor: pointer;
           &.prev {
             left:0;
           }
