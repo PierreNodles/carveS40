@@ -9,10 +9,16 @@ jQuery(function($) {
   function setMainHeight() {
     var $logoHeight = $('.logo').height();
     var $sliderHeight = $('.carve540_slide').height();
-    var $totalHeight = $logoHeight + $sliderHeight;
+    var $totalHeight =  $sliderHeight + 90;
     $('.carve540_slider').height($totalHeight);
 
   }
+
+  // CARVE540 - POP UP
+  function setPopupHeight() {
+  var $slideCarve540Height = $('.carve540_slide').height();
+  $('.pop-up_features').height($slideCarve540Height);
+}
 
   // BOUTIQUE PRODUIT
   function setSliderHeight() {
@@ -23,10 +29,12 @@ jQuery(function($) {
 
   setMainHeight();
   setSliderHeight();
+  setPopupHeight();
 
   $(window).resize(function() {
     setMainHeight() ;
     setSliderHeight();
+    setPopupHeight();
   });
 
 

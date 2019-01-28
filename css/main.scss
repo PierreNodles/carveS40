@@ -114,7 +114,7 @@
     background-image: url('../img/wave-background.jpg');
     background-size:cover;
     margin-top:-250px;
-    padding-top:70px;
+    padding-top:120px;
 
 
 
@@ -179,8 +179,8 @@
           }
 
           .pop-up_features {
+            overflow: hidden;
             display:none;
-            height: 550px;
             position: absolute;
             top: 0;
             right: 0;
@@ -191,7 +191,7 @@
             &.carve540-front {
               .pop-up_zoom {
                 background-image: url('../img/popup-front_background.jpg');
-                padding: 10% 0 0 0;
+                padding: 5% 0 0 0;
               }
             }
 
@@ -231,7 +231,7 @@
 
 
           .board {
-            padding : 70px 0px;
+            padding : 70px 0px 20px;
             figure {
               max-width:75%;
               margin:auto;
@@ -239,7 +239,7 @@
               figure.trigger {
                 position: absolute;
                 max-width: 70px;
-                top: 25%;
+                top: 23%;
                 left: 25%;
                 cursor:pointer;
 
