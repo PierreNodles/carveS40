@@ -16,9 +16,9 @@ jQuery(function($) {
 
   // CARVE540 - POP UP
   function setPopupHeight() {
-  var $slideCarve540Height = $('.carve540_slide').height();
-  $('.pop-up_features').height($slideCarve540Height);
-}
+    var $slideCarve540Height = $('.carve540_slide').height();
+    $('.pop-up_features').height($slideCarve540Height);
+  }
 
   // BOUTIQUE PRODUIT
   function setSliderHeight() {
@@ -142,8 +142,8 @@ jQuery(function($) {
         i540 = 0;
       }
       if (popup_open == false) {
-      changeSlideCarve540();
-      sliderCarve540();
+        changeSlideCarve540();
+        sliderCarve540();
       }
     }, 5000);
 
@@ -255,6 +255,46 @@ jQuery(function($) {
 
 
 
+
+  ////////////////////////
+  // LAUNCH PARALLAX
+  ////////////////////////
+
+
+
+  function runParallax() {
+    $('.parallax_bg').addClass('active');
+  }
+
+
+  var $window = $(window);
+  var $parallax_trigger = $('.parallax');
+
+  $window.on('scroll resize', check_if_in_view);
+
+
+  function check_if_in_view() {
+    var window_height = $window.height();
+    var window_top_position = $window.scrollTop();
+    var window_bottom_position = (window_top_position + window_height - 500);
+
+    $.each($parallax_trigger, function() {
+      var $element = $(this);
+      var element_height = $element.outerHeight();
+      var element_top_position = $element.offset().top;
+      var element_bottom_position = (element_top_position + element_height);
+
+      //check to see if this current container is within viewport
+      if ((element_bottom_position >= window_top_position) &&
+      (element_top_position <= window_bottom_position)) {
+        runParallax();
+
+
+      }
+    });
+  }
+
+
   ////////////////////////
   // SLIDER PRODUCT - BOUTIQUE
   ////////////////////////
@@ -364,6 +404,9 @@ jQuery(function($) {
 
     setSliderHeight();
   });
+
+
+
 
 
 
