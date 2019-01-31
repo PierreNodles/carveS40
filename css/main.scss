@@ -292,7 +292,7 @@
             }
 
             .pop-up_description {
-              background-color:rgba(255,255,255,0.9);
+              background-color:rgba(255,255,255,1);
               display: flex;
               align-items: center;
               justify-content: center;
@@ -346,6 +346,7 @@
           }
 
           .description {
+            padding: 0px 20px;
             figure {
               margin:auto;
               max-width:150px;
