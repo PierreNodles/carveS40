@@ -9,7 +9,7 @@ jQuery(function($) {
   function setMainHeight() {
     var $logoHeight = $('.logo').height();
     var $sliderHeight = $('.carve540_slide').height();
-    var $totalHeight =  $sliderHeight + 90;
+    var $totalHeight =  $sliderHeight + 120;
     $('.carve540_slider').height($totalHeight);
 
   }
@@ -46,11 +46,12 @@ jQuery(function($) {
 
   // Jumbotro full Height
   function setHeight() {
-    windowHeight = $(window).innerHeight() * 1.1;
+    windowHeight = $(window).innerHeight() ;
     if ($(window).width() < 720) {
       windowHeight = $(window).innerHeight() * 1.2;
     }
-    $('.dp_jumbotron').css('min-height', windowHeight);
+    $('.dp_jumbotron-container').css('height', windowHeight);
+    $('.dp_jumbotron').css('min-height', windowHeight*1.055);
   };
 
   setHeight();
@@ -89,7 +90,7 @@ jQuery(function($) {
   indexSlideCarve540 = $slideCarve540.length - 1, // on définit l'index du dernier élément
   i540 = 0, // on initialise un compteur
   $currentSlideCarve540 = $slideCarve540.eq(i540); // enfin, on cible la slide courante, qui possède l'index i (0 pour l'instant)
-  $currentSlideCarve540.fadeIn(500)
+  $currentSlideCarve540.fadeIn(500);
 
   function changeSlideCarve540(direction){
     $currentSlideCarve540 = $slideCarve540.eq(i540); // enfin, on cible l'image courante, qui possède l'index i (0 pour l'instant)
@@ -100,6 +101,17 @@ jQuery(function($) {
     }
 
     $currentSlideCarve540.fadeIn(0).animate({opacity: 1.0, left :"0px", right :"0px"}, 900); // on affiche seulement l'image courante
+    var currentSlidePosition = i540+1 ;
+    $('.pagination').html('<p>'+ currentSlidePosition +'/3</p>');
+
+    function setMainHeight() {
+      var $logoHeight = $('.logo').height();
+      var $sliderHeight = $currentSlideCarve540.height();
+      var $totalHeight =  $sliderHeight + 120;
+      $('.carve540_slider').animate({'height': $totalHeight}, 800);
+
+    }
+    setMainHeight();
   }
 
 
@@ -108,6 +120,7 @@ jQuery(function($) {
 
   // AJOUT DES BOUTONS DE NAVIGATION
   $('.dp_carve540 .controls_wrapper').append('<div class="controls"> <div class="prev_carve540 nav_carve540"><figure><img src="img/left-arrow.png"></figure></div> <div class="next_carve540 nav_carve540"><figure><img src="img/right-arrow.png"></figure></div></div>');
+
 
   // GESTION DE LA NAVIGATION
   $('.next_carve540').click(function(event) {
@@ -145,7 +158,7 @@ jQuery(function($) {
         changeSlideCarve540();
         sliderCarve540();
       }
-    }, 5000);
+    }, 9000);
 
   }
 
@@ -361,24 +374,24 @@ jQuery(function($) {
   });
 
 
-  // LANCEMENT DU DEFILEMENT AUTOMATIQUE DU SLIDER_PRODUCT
-  var loop;
-
-  function slider(){
-
-    loop = setTimeout(function(){
-
-      i++;
-      if (i > indexSlide) {
-        i = 0;
-      }
-      changeSlide();
-      slider();
-    }, 5000);
-
-  }
-
-  slider();
+  // // LANCEMENT DU DEFILEMENT AUTOMATIQUE DU SLIDER_PRODUCT
+  // var loop;
+  //
+  // function slider(){
+  //
+  //   loop = setTimeout(function(){
+  //
+  //     i++;
+  //     if (i > indexSlide) {
+  //       i = 0;
+  //     }
+  //     changeSlide();
+  //     slider();
+  //   }, 5000);
+  //
+  // }
+  //
+  // slider();
 
   // On s'assure qu'en cas de nav manuelle, le chrono avant defilement revienne à 0;
 

@@ -1,0 +1,14 @@
+/*** Responsive **/
+
+// Small tablets and large smartphones (landscape view)
+$screen-sm-min: 768px;
+
+
+
+
+// Small devices
+@mixin sm {
+   @media (max-width: #{$screen-sm-min}) {
+       @content;
+   }
+}
