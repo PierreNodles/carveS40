@@ -85,6 +85,8 @@ jQuery(function($) {
 
   ///////////// SLIDER CARVE 540
 
+  var slider_done = false;
+
   var $sliderCarve540 = $('.dp_carve540'), // on cible le bloc du slider
   $slideCarve540 = $('.carve540_slide'), // on cible les slides contenues dans le slider
   indexSlideCarve540 = $slideCarve540.length - 1, // on définit l'index du dernier élément
@@ -111,35 +113,19 @@ jQuery(function($) {
       $('.carve540_slider').animate({'height': $totalHeight}, 800);
 
     }
+
+    if ( i540 == 2) {
+      slider_done = true;
+      $('.prev_carve540').fadeIn();
+      $('.next_carve540').removeClass('pulse');
+      $('html').css('overflow', 'visible');
+    }
+
     setMainHeight();
+
+
   }
-
-
-  changeSlideCarve540()
-
-
-  // AJOUT DES BOUTONS DE NAVIGATION
-  $('.dp_carve540 .controls_wrapper').append('<div class="controls"> <div class="prev_carve540 nav_carve540"><figure><img src="img/left-arrow.png"></figure></div> <div class="next_carve540 nav_carve540"><figure><img src="img/right-arrow.png"></figure></div></div>');
-
-
-  // GESTION DE LA NAVIGATION
-  $('.next_carve540').click(function(event) {
-    i540++;
-    if (i540 > indexSlide) {
-      i540 = 0;
-    }
-    changeSlideCarve540('right');
-
-  });
-
-  $('.prev_carve540').click(function(event) {
-    i540--;
-    if (i540 < 0) {
-      i540 = indexSlide;
-    }
-    changeSlideCarve540('left');
-
-  });
+  changeSlideCarve540();
 
 
   // LANCEMENT DU DEFILEMENT AUTOMATIQUE DU SLIDER_PRODUCT
@@ -164,12 +150,89 @@ jQuery(function($) {
 
   sliderCarve540();
 
+
+  // AJOUT DES BOUTONS DE NAVIGATION
+  $('.dp_carve540 .controls_wrapper').append('<div class="controls"> <div class="prev_carve540 nav_carve540"><figure><img src="img/left-arrow.png"></figure></div> <div class="next_carve540 pulse nav_carve540"><figure><img src="img/right-arrow.png"></figure></div></div>');
+
+  $('.prev_carve540').fadeOut();
+  // GESTION DE LA NAVIGATION PAR FLECHE
+  $('.next_carve540').click(function(event) {
+    i540++;
+    if (i540 > indexSlide) {
+      i540 = 0;
+    }
+    changeSlideCarve540('right');
+
+  });
+
+  $('.prev_carve540').click(function(event) {
+    i540--;
+    if (i540 < 0) {
+      i540 = indexSlide;
+    }
+    changeSlideCarve540('left');
+
+  });
+
+
   // On s'assure qu'en cas de nav manuelle, le chrono avant defilement revienne à 0;
 
   $('.nav_carve540').click(function(event) {
     clearTimeout(loopCarve540); // On sort de la boucle timeOut créée ans la function carrousel_1
     sliderCarve540(); // Puis on la relance
   });
+
+
+
+  //////////////////////////////
+  /////////// SCROLL / SLIDER //
+  //////////////////////////////
+
+
+  var $window = $(window);
+  var $slider_trigger = $('.logo');
+  var already_done_regular = false;
+
+  $window.on('scroll', checkInView);
+  $window.trigger('scroll');
+
+
+  function checkInView() {
+
+    var window_height = $window.height();
+    var window_top_position = $window.scrollTop();
+    var window_bottom_position = (window_top_position + window_height - 300);
+
+    $.each($slider_trigger, function() {
+      var $element = $(this);
+      var element_height = $element.outerHeight();
+      var element_top_position = $element.offset().top;
+      var element_bottom_position = (element_top_position + element_height);
+
+      //check to see if this current container is within viewport
+      if ((element_bottom_position >= window_top_position) &&
+      (element_top_position <= window_bottom_position) && (already_done_regular == false)) {
+        already_done_regular = true;
+        $('html, body').animate({'scrollTop': $slider_trigger.offset().top - 100}, 1500);
+
+
+      }
+    });
+  }
+
+  $window.scroll(function(event){
+    if ( (already_done_regular == true) && (slider_done == false) ) {
+      $('html').css('overflow', 'hidden');
+    } else {
+      $('html').css('overflow', 'visible');
+    }
+
+
+
+
+  });
+
+
 
 
   ///////////// POP UP CARVE 540 FEATURES
@@ -198,6 +261,11 @@ jQuery(function($) {
     sliderCarve540(); // Puis on la relance
 
   });
+
+
+
+
+
 
 
 
