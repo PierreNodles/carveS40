@@ -192,6 +192,7 @@ jQuery(function($) {
   var $window = $(window);
   var $slider_trigger = $('.logo');
   var already_done_regular = false;
+  var already_done_regular_bis = false;
 
   $window.on('scroll', checkInView);
   $window.trigger('scroll');
@@ -215,7 +216,9 @@ jQuery(function($) {
       (element_top_position <= window_bottom_position) && (already_done_regular == false)) {
 
 
-        $('html, body').animate({'scrollTop': $slider_trigger.offset().top - 100}, 1500);
+        $('html, body').animate({'scrollTop': $slider_trigger.offset().top - 100}, 1500, function() {
+          already_done_regular_bis = true;
+        });
 
           already_done_regular = true;
 
@@ -241,7 +244,7 @@ jQuery(function($) {
 // GESTION DE LA NAVIGATION AU SCROLL
 
   $('body').on('wheel DOMMouseScroll', function(e){
-  if(typeof e.originalEvent.detail == 'number' && e.originalEvent.detail !== 0 && (already_done_regular == true) && (slider_done == false) ) {
+  if(typeof e.originalEvent.detail == 'number' && e.originalEvent.detail !== 0 && (already_done_regular_bis == true) && (slider_done == false) ) {
     if(e.originalEvent.detail > 0) {
 
       i540++;
@@ -257,7 +260,7 @@ jQuery(function($) {
         }
         changeSlideCarve540('left');
     }
-  } else if (typeof e.originalEvent.wheelDelta == 'number' && (already_done_regular == true) && (slider_done == false)) {
+  } else if (typeof e.originalEvent.wheelDelta == 'number' && (already_done_regular_bis == true) && (slider_done == false)) {
     if(e.originalEvent.wheelDelta < 0) {
 
         i540++;
