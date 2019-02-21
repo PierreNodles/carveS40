@@ -1,8 +1,12 @@
 jQuery(function($) {
 
+var $window = $(window);
+
   ////////////////////
   ////////// SET HEIGHT
   /////////////////////
+
+
 
   // CARVE540
 
@@ -48,7 +52,7 @@ jQuery(function($) {
   function setHeight() {
     windowHeight = $(window).innerHeight() ;
     if ($(window).width() < 720) {
-      windowHeight = $(window).innerHeight() * 1.2;
+      windowHeight = $(window).innerHeight() * 1.05;
     }
     $('.dp_jumbotron-container').css('height', windowHeight);
     $('.dp_jumbotron').css('min-height', windowHeight*1.055);
@@ -121,7 +125,11 @@ jQuery(function($) {
       $('html').css('overflow', 'visible');
     }
 
+  if  ($window.width() < 1024) {
     setMainHeight();
+  }
+
+
 
 
   }
@@ -144,7 +152,7 @@ jQuery(function($) {
         changeSlideCarve540();
         sliderCarve540();
       }
-    }, 9000);
+    }, 18000);
 
   }
 
@@ -189,7 +197,7 @@ jQuery(function($) {
   //////////////////////////////
 
 
-  var $window = $(window);
+
   var $slider_trigger = $('.logo');
   var already_done_regular = false;
   var already_done_regular_bis = false;
