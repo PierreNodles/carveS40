@@ -160,7 +160,7 @@ var $window = $(window);
 
 
   // AJOUT DES BOUTONS DE NAVIGATION
-  $('.dp_carve540 .controls_wrapper').append('<div class="controls"> <div class="prev_carve540 nav_carve540"><figure><img src="img/left-arrow.png"></figure></div> <div class="next_carve540 pulse nav_carve540"><figure><img src="img/right-arrow.png"></figure></div></div>');
+  $('.dp_carve540 .controls_wrapper').append('<div class="controls"> <div class="prev_carve540 nav_carve540"><figure><img src="/ecfr/static/2019/lp/oxelo/longboard-carve540/V1/assets/img/left-arrow.png"></figure></div> <div class="next_carve540 pulse nav_carve540"><figure><img src="/ecfr/static/2019/lp/oxelo/longboard-carve540/V1/assets/img/right-arrow.png"></figure></div></div>');
 
   $('.prev_carve540').fadeOut();
   // GESTION DE LA NAVIGATION PAR FLECHE
@@ -475,7 +475,7 @@ var $window = $(window);
   changeSlide();
 
   // AJOUT DES BOUTONS DE NAVIGATION
-  $('.slider_product .container').append('<div class="controls"> <div class="prev nav"><figure><img src="img/left-arrow.png"></figure><span>Nos autres<br>longboards</span></div> <div class="next nav"><span>Nos autres<br>longboards</span><figure><img src="img/right-arrow.png"></figure></div></div>');
+  $('.slider_product .container').append('<div class="controls"> <div class="prev nav"><figure><img src="/ecfr/static/2019/lp/oxelo/longboard-carve540/V1/assets/img/left-arrow.png"></figure><span>Nos autres<br>longboards</span></div> <div class="next nav"><span>Nos autres<br>longboards</span><figure><img src="/ecfr/static/2019/lp/oxelo/longboard-carve540/V1/assets/img/right-arrow.png"></figure></div></div>');
 
   // GESTION DE LA NAVIGATION
   $('.next').click(function(event) {
